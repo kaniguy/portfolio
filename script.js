@@ -153,20 +153,24 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-
-
 // Gestion du préloader
 window.addEventListener('load', function() {
-    // Simulation d'un temps de chargement (à ajuster)
+    // Animation de la barre de chargement
+    const progressBar = document.querySelector('.loading-progress');
+    if (progressBar) {
+        progressBar.style.width = '100%';
+    }
+    
+    // Disparition après 3 secondes (ajustez selon vos besoins)
     setTimeout(function() {
-        const loader = document.querySelector('.loader-wrapper');
-        if (loader) {
-            loader.classList.add('hidden');
+        const preloader = document.querySelector('.preloader');
+        if (preloader) {
+            preloader.classList.add('hidden');
             
             // Retire complètement après l'animation
             setTimeout(() => {
-                loader.style.display = 'none';
-            }, 500);
+                preloader.style.display = 'none';
+            }, 1000);
         }
-    }, 1500); // 1.5 secondes de chargement
+    }, 3000);
 });
