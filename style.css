@@ -282,7 +282,32 @@ nav .container {
     color: var(--primary-color);
 }
 
-/* Section Compétences */
+/* Section Compétences - Version complète */
+#skills {
+    position: relative;
+    padding: 80px 0;
+    background-image: url('../images/project1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#skills::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 0;
+}
+
+#skills .container {
+    position: relative;
+    z-index: 1;
+}
+
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -294,11 +319,14 @@ nav .container {
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .skill-category:hover {
     transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 .skill-category h3 {
@@ -307,16 +335,21 @@ nav .container {
     display: flex;
     align-items: center;
     gap: 10px;
+    font-size: 1.3rem;
 }
 
 .skill-category ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .skill-category li {
     margin-bottom: 10px;
     position: relative;
     padding-left: 25px;
+    line-height: 1.6;
+    color: var(--text-color);
 }
 
 .skill-category li::before {
@@ -324,6 +357,14 @@ nav .container {
     position: absolute;
     left: 0;
     color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Effet supplémentaire au survol des items */
+.skill-category li:hover {
+    color: var(--primary-color);
+    transform: translateX(5px);
+    transition: all 0.2s ease;
 }
 
 /* Section Projets */
