@@ -151,3 +151,22 @@ document.addEventListener('DOMContentLoaded', function() {
     
     window.addEventListener('scroll', animateOnScroll);
 });
+
+
+
+
+// Gestion du préloader
+window.addEventListener('load', function() {
+    // Simulation d'un temps de chargement (à ajuster)
+    setTimeout(function() {
+        const loader = document.querySelector('.loader-wrapper');
+        if (loader) {
+            loader.classList.add('hidden');
+            
+            // Retire complètement après l'animation
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+        }
+    }, 1500); // 1.5 secondes de chargement
+});
