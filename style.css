@@ -29,6 +29,87 @@ body {
     background-color: var(--white);
 }
 
+
+
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: #0a0a23; /* bleu foncé ou presque noir */
+    text-align: center;
+}
+
+/* Améliore aussi les boutons */
+.hero-buttons .btn {
+    background-color: #0a0a23;
+    color: white;
+    border: none;
+}
+
+.hero-buttons .btn-outline {
+    background-color: transparent;
+    color: #0a0a23;
+    border: 2px solid #0a0a23;
+}
+
+/* Pour un effet plus lisible : ajout d'une ombre légère au texte */
+.hero-text h1, .hero-text p {
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
+}
+
+
+
+
+
+
+
+
+
+
+
+.hero {
+    position: relative;
+    height: 80vh; /* Réduit la hauteur à 80% de la hauteur de l'écran */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: white; /* ou une autre couleur selon la vidéo */
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+/* Styles globaux */
+
 .container {
     width: 90%;
     max-width: 1200px;
@@ -391,19 +472,61 @@ nav .container {
     margin-bottom: 15px;
     color: var(--gray);
 }
+/* Section Contact avec image de fond */
+#contact {
+    position: relative;
+    padding: 80px 0;
+    background-image: url('images/fond1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #333; /* Couleur de texte par défaut */
+}
 
-/* Section Contact */
+#contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.85); /* Overlay blanc semi-transparent */
+    z-index: 0;
+}
+
+#contact .container {
+    position: relative;
+    z-index: 1;
+}
+
 .contact-content {
     display: flex;
     flex-wrap: wrap;
     gap: 50px;
+    justify-content: center;
 }
 
 .contact-form {
     flex: 1;
     min-width: 300px;
+    max-width: 500px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles du formulaire */
 .form-group {
     margin-bottom: 20px;
 }
@@ -414,28 +537,50 @@ nav .container {
     padding: 12px 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
+    font-family: inherit;
+    transition: all 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
+    border-color: #3498db;
     outline: none;
-    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
 }
 
-.contact-info {
-    flex: 1;
-    min-width: 300px;
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
 }
 
+/* Bouton */
+.btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* Informations de contact */
 .contact-info h3 {
-    color: var(--primary-color);
+    color: #3498db;
     margin-bottom: 20px;
+    font-size: 1.5rem;
 }
 
 .contact-info ul {
     list-style: none;
+    padding: 0;
     margin-bottom: 30px;
 }
 
@@ -443,12 +588,19 @@ nav .container {
     margin-bottom: 15px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
 }
 
+.contact-info i {
+    color: #3498db;
+    width: 20px;
+    text-align: center;
+}
+
+/* Liens sociaux - Version icônes toujours visibles */
 .social-links {
     display: flex;
-    gap: 20px;
+    gap: 15px;
     margin-bottom: 30px;
 }
 
@@ -458,30 +610,51 @@ nav .container {
     justify-content: center;
     width: 40px;
     height: 40px;
-    background-color: var(--primary-color);
-    color: var(--white);
+    background-color: transparent; /* Fond transparent */
+    color: #3498db; /* Couleur des icônes */
     border-radius: 50%;
-    text-decoration: none;
     transition: all 0.3s ease;
+    text-decoration: none;
+    border: 2px solid #3498db; /* Bordure colorée */
+    font-size: 1.2rem; /* Taille des icônes */
 }
 
 .social-links a:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-3px);
+    /* Fond coloré au survol */
+    /* background-color: #3498db;  */
+    color: white; /* Icône blanche au survol */
+    transform: scale(1.1); /* Légère augmentation de taille */
 }
 
+
+/* QR Code */
 .qr-code {
     text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
 }
 
 .qr-code img {
     width: 150px;
     height: 150px;
     margin-bottom: 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 5px;
+    background: white;
 }
 
 .qr-code p {
-    color: var(--gray);
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Section Témoignages */
+.testimonials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
 }
 
 /* Pied de page */

@@ -174,3 +174,5 @@ window.addEventListener('load', function() {
         }
     }, 3000);
 });
+
+// Lecture automatique de la vidéo d'arrière-plan
