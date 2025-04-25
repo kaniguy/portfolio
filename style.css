@@ -38,7 +38,7 @@ body {
 #home {
     position: relative; /* Position relative pour permettre le positionnement absolu des enfants */
     padding: 80px 0; /* Espacement vertical important */
-    background-image: url('images/fond1.jpg'); /* Image de fond */
+    background-image: url('images/fond3.jpg'); /* Image de fond */
     background-size: cover; /* L'image couvre toute la zone */
     background-position: center; /* Centrage de l'image */
     background-attachment: fixed; /* Effet de parallaxe (fond fixe lors du défilement) */
