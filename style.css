@@ -752,7 +752,10 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #87CEEB; /* Bleu ciel */
+    background: #ff08a0; /* Bleu ciel */
+    background-image: url('images/fond2.jpg'); /* Image de fond */
+    background-size: cover; /* L'image couvre toute la zone */
+    background-position: center; /* Centrage de l'image */
     display: flex;
     justify-content: center;
     align-items: center;
