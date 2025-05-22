@@ -175,4 +175,41 @@ window.addEventListener('load', function() {
     }, 3000);
 });
 
-// Lecture automatique de la vidéo d'arrière-plan
+
+
+
+// Gestion du formulaire de contact
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('statusMessage');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const data = {
+      nom: form.nom.value,
+      email: form.email.value,
+      sujet: form.sujet.value,
+      message: form.message.value
+    };
+
+    try {
+      const response = await fetch("https://formspree.io/f/xldbkwla", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        status.textContent = "Message envoyé avec succès !";
+        form.reset();
+      } else {
+        status.textContent = "Erreur lors de l'envoi du message.";
+      }
+    } catch (error) {
+      status.textContent = "Une erreur s’est produite.";
+    }
+  });
+
+
